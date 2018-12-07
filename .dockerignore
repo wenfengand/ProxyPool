@@ -2,4 +2,4 @@
 *.pyc
 *.db
 venv
-nohup.out
+/.idea
