@@ -1,4 +1,5 @@
 import time
+import os
 from multiprocessing import Process
 from proxypool.api import app
 from proxypool.getter import Getter
@@ -32,8 +33,10 @@ class Scheduler():
         """
         开启API
         """
-        app.run(API_HOST, API_PORT)
-    
+        #app.run(API_HOST, API_PORT) 
+        pwd = os.path.dirname(os.path.abspath(__file__)) 
+        os.system('cd '+ pwd +  
+           '&& gunicorn -w 4 -b '+ str(API_HOST) +':'+ str(API_PORT) + ' api:app')
     def run(self):
         print('代理池开始运行')
         

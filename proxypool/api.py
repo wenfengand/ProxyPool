@@ -1,6 +1,10 @@
 from flask import Flask, g
 
-from .db import RedisClient
+import sys 
+import os.path
+pwd = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(pwd)
+from proxypool.db import RedisClient
 
 __all__ = ['app']
 
