@@ -1,8 +1,14 @@
 # Redis数据库地址
-REDIS_HOST = '127.0.0.1'
-
+import os 
+if 'REDIS_PORT_6379_TCP_ADDR' in os.environ:
+    REDIS_HOST = os.environ['REDIS_PORT_6379_TCP_ADDR']
+else:
+    REDIS_HOST = '127.0.0.1'
+if 'REDIS_PORT_6379_TCP_PORT' in os.environ:
+    REDIS_PORT = os.environ['REDIS_PORT_6379_TCP_PORT']
+else:    
 # Redis端口
-REDIS_PORT = 6379
+    REDIS_PORT = 6379
 
 # Redis密码，如无填None
 REDIS_PASSWORD = None
