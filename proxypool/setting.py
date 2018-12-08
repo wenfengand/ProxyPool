@@ -35,8 +35,13 @@ TEST_URL = 'http://www.baidu.com'
 
 # API配置
 API_HOST = '0.0.0.0'
-API_PORT = 8001
+API_PORT = 8001 
 
+API_TOKEN = []
+if 'TOKEN' in os.environ:
+    API_TOKEN.append(os.environ['TOKEN']) 
+else:
+    API_TOKEN.append('pretended_token')
 # 开关
 TESTER_ENABLED = True
 GETTER_ENABLED = True
